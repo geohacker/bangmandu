@@ -1,8 +1,9 @@
 var express = require('express');
 var MapboxClient = require('mapbox');
-var client = new MapboxClient('sk.eyJ1IjoiZ2VvaGFja2VyIiwiYSI6ImNqNmx1aXBveDFwYXIycHFtZzkweXJ5Y3MifQ.bELOJS4M7EsK-3sXEhZ0RA');
-var datasetID = 'cj6lnkplm1nd033o55pczx8rw';
 var moment = require('moment');
+var argv = require('minimist')(process.argv.slice(2));
+var client = new MapboxClient(argv.accessToken);
+var datasetID = argv.dataset;
 
 var app = express();
 
@@ -34,6 +35,6 @@ app.get('/', function(req, res) {
     });
 });
 
-app.listen(121212, function() {
+app.listen(12121, function() {
     console.log('listening.');
 });
