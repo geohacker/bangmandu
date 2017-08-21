@@ -75,7 +75,6 @@ map.on('load', function() {
   });
 
   $('.city').on('mouseover', function(e) {
-    map.addLayer(cityLayer);
     var code = e.currentTarget.dataset.code;
     var geojson = stops[code];
     map.getSource('city').setData(geojson.geometry);
@@ -85,7 +84,7 @@ map.on('load', function() {
     map.getSource('city').setData(currentLocation);
     $('.city').removeClass('border--2 active');
     map.setCenter([79.0820556, 21.1498134]);
-    // map.zoomTo(4.6);
+    map.zoomTo(4);
   });
 });
 
