@@ -7,7 +7,7 @@ var datasetID = argv.dataset;
 
 var app = express();
 
-app.get('/', function(req, res) {
+app.post('/', function(req, res) {
     var lat = parseFloat(req.query.lat);
     var lon = parseFloat(req.query.lon);
     var timestamp = req.query.timestamp;
