@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <title>Bangalore - Kathmandu - Bangalore</title>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='shortcut icon' href='Your favicon path goes here' type='image/x-icon'>
+  <link href='https://api.mapbox.com/mapbox-assembly/v0.15.0/assembly.min.css' rel='stylesheet'>
+  <script async defer src='https://api.mapbox.com/mapbox-assembly/v0.15.0/assembly.js'></script>
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.0/mapbox-gl.css' rel='stylesheet' />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="lib/jquery.rss.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+  <style type="text/css">
+    p {
+      font-size: 16px;
+    }
+    h1 {
+      font-size: 40px;
+    }
+    .h480 {
+      height: 480px;
+    }
+    .wmax520 {
+      max-width: 520px;
+    }
+    .city {
+      cursor: pointer;
+    }
+    .photo:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body class="mx18 my18">
+  <div class='flex-parent flex-parent--column flex-parent--column-mm flex-parent--row-ml'>
+    <div class="wmax600 mr12-ml mr12-mxl">
+        <div class="prose txt-l txt-bold">
+          <h1>Bangalore 🚘 Kathmandu</h1>
+        </div>
+        <p class="prose mt12 mb12">
+          <a href="https://twitter.com/fakenisha">Nisha</a>, <a href="https://twitter.com/geohacker">Sajjad</a>, and <a href="https://twitter.com/tejasap">Tejas</a>  are on a road trip to Kathmandu - covering 5570 kilometers over 19 days. We're making many stops along the way, as you can see, and you're invited to join us in any of the segments. Please reach out! We'll be in Kathmandu for a week helping organise the OpenStreetMap conference - <a href="http://stateofthemap.asia">State of the Map Asia</a>.
+        </p>
+        <p class="prose mb12">
+          We'll be documenting our trip through street photos on <a href="https://mapillary.com">Mapillary</a>, and you'll be able to see some below. Bookmark this site to see our progress and checkout our tags #bangmandu #jaihobettergetthere. If you have recommendations on what we should during our stops, we'd love to hear!
+        </p>
+      <div class="cities flex-parent flex-parent--column flex-parent--row-ml flex-parent--row-mxl">
+        <div data-code='PNQ' class="city col border-b border--gray-light border--red-on-hover border--red-on-active px6 py6 mx0-mm my6" href="#map">
+          Pune, September 9
+        </div>
+        <div data-code='IXU' class="city col border-b border--gray-light border--red-on-hover border--red-on-active px6 py6 mx6-ml mx0-mm my6">
+          Aurangabad, September 10
+        </div>
+      </div>
+      <div class="flex-parent flex-parent--column flex-parent--row-ml flex-parent--row-mxl">
+        <div data-code='IDR' class="city col border-b border--gray-light border--red-on-hover border--red-on-active px6 py6  mx0-mm my6">
+          Indore, September 11
+        </div>
+        <div data-code='HJR' class="city col border-b border--gray-light border--red-on-hover border--red-on-active px6 py6 mx12-ml mx0-mm my6">
+          Khajuraho, September 12
+        </div>
+      </div>
+      <div class="flex-parent flex-parent--column flex-parent--row-ml flex-parent--row-mxl">
+        <div data-code='LKO' class="city col border-b border--gray-light border--red-on-hover border--red-on-active px6 py6 mx0-mm my6">
+          Lucknow, September 15
+        </div>
+        <div data-code='BWA' class="city col border-b border--gray-light border--red-on-hover border--red-on-active px6 py6 mx12-ml mx0-mm my6">
+          Lumbini, September 17
+        </div>
+      </div>
+      <div class="flex-parent flex-parent--column flex-parent--row-ml flex-parent--row-mxl">
+        <div data-code='PKR' class="city col border-b border--gray-light border--red-on-hover border--red-on-active px6 py6  mx0-mm my6">
+          Pokhara, September 18
+        </div>
+        <div data-code='KTM' class="city col border-b border--gray-light border--red-on-hover border--red-on-active px6 py6 mx12-ml mx0-mm my6">
+          Kathmandu, September 20
+        </div>
+      </div>
+      <div class="flex-parent flex-parent--column flex-parent--row-ml flex-parent--row-mxl">
+        <div data-code='VNS' class="city col border-b border--gray-light border--red-on-hover border--red-on-active px6 py6  mx0-mm my6">
+          Varanasi, September 26
+        </div>
+        <div data-code='JLR' class="city col border-b border--gray-light border--red-on-hover border--red-on-active px6 py6 mx12-ml mx0-mm my6">
+          Jabalpur, September 28
+        </div>
+      </div>
+      <div class="flex-parent flex-parent--column flex-parent--row-ml flex-parent--row-mxl">
+        <div data-code='NAG' class="city col border-b border--gray-light border--red-on-hover border--red-on-active px6 py6 mx0-mm my6">
+          Nagpur, September 29
+        </div>
+        <div data-code='HYD' class="city col border-b border--gray-light border--red-on-hover border--red-on-active px6 py6 mx12-ml mx0-mm my6">
+          Hyderabad, September 30
+        </div>
+      </div>
+      <div class="flex-parent flex-parent--column flex-parent--row-ml flex-parent--row-mxl">
+        <div data-code='BLR' class="city col border-b border--gray-light border--red-on-hover border--red-on-active px6 py6 mx0-mm my6 mr12-ml mr12-mxl">
+          Bangalore, October 1
+        </div>
+        <div class="col px6 py6 mx0-mm my6 mr12-ml mr12-mxl">
+        </div>
+      </div>
+    </div>
+    <div id='map' class='flex-child--grow wmin-auto h480 hmin600-ml hmin600-mxl my-auto-mm'></div>
+  </div>
+  <div id="rssfeed"></div>
+</body>
+<script type="text/javascript" src="./js/app.js"></script>
+</html>
