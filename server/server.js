@@ -7,7 +7,7 @@ var datasetID = argv.dataset;
 
 var app = express();
 
-app.post('/', function(req, res) {
+app.get('/', function(req, res) {
     var lat = parseFloat(req.query.lat);
     var lon = parseFloat(req.query.lon);
     var timestamp = req.query.timestamp;
@@ -23,7 +23,7 @@ app.post('/', function(req, res) {
             'altitude': parseFloat(req.query.altitude, 10) || null,
             'speed': parseFloat(req.query.speed) || null,
             'accuracy': parseFloat(req.query.accuracy) || null,
-            'time': moment.utc(timestamp).toISOString(),
+            'time': moment.utc(parseInt(timestamp)*1000).toISOString(),
             'direction': req.query.direction || null
         }
     };
@@ -31,6 +31,7 @@ app.post('/', function(req, res) {
         if (err) {
             res.send(err);
         }
+        console.log(feature);
         res.send(feature);
     });
 });
