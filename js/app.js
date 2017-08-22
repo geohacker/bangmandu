@@ -124,19 +124,26 @@ map.on('load', function() {
     map.zoomTo(4.5);
   });
 
-  $.get('https://api.mapbox.com/datasets/v1/geohacker/cj6lnkplm1nd033o55pczx8rw/features/latest?access_token='+mapboxgl.accessToken)
-    .done(function(d) {
-      currentLocation = d;
-      if (currentLocation) {
-        map.getSource('currentCity').setData(d.geometry);
-        map.setLayoutProperty('currentCity', 'visibility', 'visible');
-        map.setLayoutProperty('currentCitySymbol', 'visibility', 'visible');
-        var status = moment(currentLocation.properties.time).fromNow();
-        $('.status').text('last updated '+ status);
-      }
-    })
-    .fail(function(err) {console.log(err)});
+  function getCurrentLocation() {
+    $('.spinner').addClass('loading loading--s');
+    $.get('https://api.mapbox.com/datasets/v1/geohacker/cj6lnkplm1nd033o55pczx8rw/features/latest?access_token='+mapboxgl.accessToken)
+      .done(function(d) {
+        $('.spinner').removeClass('loading loading--s');
+        currentLocation = d;
+        if (currentLocation) {
+          map.getSource('currentCity').setData(d.geometry);
+          map.setLayoutProperty('currentCity', 'visibility', 'visible');
+          map.setLayoutProperty('currentCitySymbol', 'visibility', 'visible');
+          var status = moment(currentLocation.properties.time).fromNow();
+          $('.status').text('last updated '+ status);
+        }
+      })
+      .fail(function(err) {console.log(err)});
+  }
 
+  getCurrentLocation();
+  // update location every ten minutes.
+  setTimeout(getCurrentLocation, 600000);
 });
 
 
