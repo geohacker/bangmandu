@@ -34,6 +34,16 @@ app.get('/', function(req, res) {
         console.log(feature);
         res.send(feature);
     });
+
+    // clone this feature, and update the 'latest' id
+    var latestFeature = JSON.parse(JSON.stringify(feature));
+    latestFeature.id = 'latest';
+    client.insertFeature(latestFeature, datasetID, function(err, feature) {
+        if (err) {
+            res.send(err);
+        }
+        res.send(feature);
+    });
 });
 
 app.listen(12121, function() {

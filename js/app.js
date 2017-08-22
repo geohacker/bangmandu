@@ -6,7 +6,7 @@ var opacity = initialOpacity;
 var initialRadius = 8;
 var radius = initialRadius;
 var maxRadius = 18;
-var currentLocation = {
+var blr = {
   'type': 'Feature',
   'geometry': {
     'type': 'Point',
@@ -14,6 +14,8 @@ var currentLocation = {
   },
   'properties': {}
 };
+
+var currentLocation = {};
 
 // setup map
 mapboxgl.accessToken = 'pk.eyJ1IjoiZ2VvaGFja2VyIiwiYSI6ImFIN0hENW8ifQ.GGpH9gLyEg0PZf3NPQ7Vrg';
@@ -43,10 +45,16 @@ map.on('load', function() {
   // setup city marker layer
   var city = {
     "type": "geojson",
-    "data": stops['BLR']
+    "data": currentLocation.type ? currentLocation : blr
+  };
+
+  var currentCity = {
+    "type": "geojson",
+    "data": currentLocation.type ? currentLocation : blr
   };
 
   map.addSource('city', city);
+  map.addSource('currentCity', currentCity);
 
   var cityLayer = {
     "id": "city",
@@ -60,10 +68,22 @@ map.on('load', function() {
     }
   }
 
-  map.addLayer(cityLayer);
-
-  // Start the animation.
-  animateMarker(0);
+  var currentCityLayer = {
+    "id": "currentCity",
+    "source": "currentCity",
+    "type": "circle",
+    "paint": {
+      "circle-radius": initialRadius,
+      "circle-radius-transition": {duration: 0},
+      "circle-opacity-transition": {duration: 0},
+      "circle-color": "green"
+    }
+  }
+    map.addLayer(cityLayer);
+    map.addLayer(currentCityLayer);
+    map.setLayoutProperty('city', 'visibility', 'none');
+    map.setLayoutProperty('currentCity', 'visibility', 'none');
+    animateMarker(0);
 
   $('.city').on('click', function(e) {
     $(this).addClass('border--2 active');
@@ -75,6 +95,7 @@ map.on('load', function() {
   });
 
   $('.city').on('mouseover', function(e) {
+    map.setLayoutProperty('city', 'visibility', 'visible');
     map.zoomTo(4.5);
     var code = e.currentTarget.dataset.code;
     var geojson = stops[code];
@@ -82,11 +103,23 @@ map.on('load', function() {
   });
 
   $('.city').on('mouseleave', function() {
+    map.setLayoutProperty('city', 'visibility', 'none');
     map.getSource('city').setData(currentLocation);
     $('.city').removeClass('border--2 active');
     map.setCenter([79.0820556, 21.1498134]);
     map.zoomTo(4.5);
   });
+
+  $.get('https://api.mapbox.com/datasets/v1/geohacker/cj6lnkplm1nd033o55pczx8rw/features/latest?access_token='+mapboxgl.accessToken)
+    .done(function(d) {
+      currentLocation = d;
+      if (currentLocation) {
+        map.getSource('currentCity').setData(d.geometry);
+        map.setLayoutProperty('currentCity', 'visibility', 'visible');
+      }
+    })
+    .fail(function(err) {console.log(err)});
+
 });
 
 
@@ -105,6 +138,9 @@ function animateMarker(timestamp) {
 
     map.setPaintProperty('city', 'circle-radius', radius);
     map.setPaintProperty('city', 'circle-opacity', opacity);
+
+    map.setPaintProperty('currentCity', 'circle-radius', radius);
+    map.setPaintProperty('currentCity', 'circle-opacity', opacity);
 
   }, 1000 / framesPerSecond);
 
