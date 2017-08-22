@@ -31,6 +31,77 @@
     .photo:hover {
       opacity: 0.9;
     }
+
+    .dot {
+      background: #42ADE2;
+      box-shadow: #42ADE2 0 0 0 2px;
+      border: 2px solid #2299db;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      margin-top: 2px;
+      position: relative;
+      text-align: center;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      -webkit-animation:  pulse 1.6s;
+      -moz-animation:     pulse 1.6s;
+      -o-animation:       pulse 1.6s;
+      -ms-animation:      pulse 1.6s;
+      animation:          pulse 1.6s;
+      -webkit-animation-iteration-count: infinite;
+      -moz-animation-iteration-count: infinite;
+      -o-animation-iteration-count: infinite;
+      -ms-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+    }
+    @-webkit-keyframes pulse {
+      0% {
+        -webkit-box-shadow: 0 0 0 0 rgba(66, 173, 226, 0.8);
+      }
+      70% {
+        -webkit-box-shadow: 0 0 0 30px rgba(66, 173, 226, 0);
+      }
+      100% {
+        -webkit-box-shadow: 0 0 0 0 rgba(66, 173, 226, 0);
+      }
+    }
+    @-o-keyframes pulse {
+      0% {
+        -o-box-shadow: 0 0 0 0 rgba(66, 173, 226, 0.8);
+      }
+      70% {
+        -o-box-shadow: 0 0 0 30px rgba(66, 173, 226, 0);
+      }
+      100% {
+        -o-box-shadow: 0 0 0 0 rgba(66, 173, 226, 0);
+      }
+    }
+    @-ms-keyframes pulse {
+      0% {
+        -ms-box-shadow: 0 0 0 0 rgba(66, 173, 226, 0.8);
+      }
+      70% {
+        -ms-box-shadow: 0 0 0 30px rgba(66, 173, 226, 0);
+      }
+      100% {
+        -ms-box-shadow: 0 0 0 0 rgba(66, 173, 226, 0);
+      }
+    }
+    @keyframes pulse {
+      0% {
+        -moz-box-shadow: 0 0 0 0 rgba(66, 173, 226, 0.8);
+        box-shadow: 0 0 0 0 rgba(66, 173, 226, 0.4);
+      }
+      70% {
+        -moz-box-shadow: 0 0 0 30px rgba(66, 173, 226, 0);
+        box-shadow: 0 0 0 30px rgba(66, 173, 226, 0);
+      }
+      100% {
+        -moz-box-shadow: 0 0 0 0 rgba(66, 173, 226, 0);
+        box-shadow: 0 0 0 0 rgba(66, 173, 226, 0);
+      }
+    }
   </style>
 </head>
 <body class="mx18 my18">
@@ -46,58 +117,60 @@
           We'll be documenting our trip through street photos on <a href="https://mapillary.com">Mapillary</a>, and you'll be able to see some below. Bookmark this site to see our progress and checkout our tags #bangmandu #jaihobettergetthere. If you have recommendations on what we should do during our stops, we'd love to hear!
         </p>
       <div class="cities flex-parent flex-parent--column flex-parent--row-ml flex-parent--row-mxl">
+        <div class="col px6 py6 mx0-mm my6 mr12-ml mr12-mxl border-b border--blue">
+          <span class="dot"></span>
+          <span class="status"></span>
+        </div>
         <div data-code='PNQ' class="city col border-b border--gray-light border--red-on-hover border--red-on-active px6 py6 mx0-mm my6" href="#map">
           Pune, September 9
         </div>
+      </div>
+      <div class="flex-parent flex-parent--column flex-parent--row-ml flex-parent--row-mxl">
         <div data-code='IXU' class="city col border-b border--gray-light border--red-on-hover border--red-on-active px6 py6 mx6-ml mx0-mm my6">
           Aurangabad, September 10
         </div>
-      </div>
-      <div class="flex-parent flex-parent--column flex-parent--row-ml flex-parent--row-mxl">
         <div data-code='IDR' class="city col border-b border--gray-light border--red-on-hover border--red-on-active px6 py6  mx0-mm my6">
           Indore, September 11
         </div>
+      </div>
+      <div class="flex-parent flex-parent--column flex-parent--row-ml flex-parent--row-mxl">
         <div data-code='HJR' class="city col border-b border--gray-light border--red-on-hover border--red-on-active px6 py6 mx12-ml mx0-mm my6">
           Khajuraho, September 12
         </div>
-      </div>
-      <div class="flex-parent flex-parent--column flex-parent--row-ml flex-parent--row-mxl">
         <div data-code='LKO' class="city col border-b border--gray-light border--red-on-hover border--red-on-active px6 py6 mx0-mm my6">
           Lucknow, September 15
         </div>
+      </div>
+      <div class="flex-parent flex-parent--column flex-parent--row-ml flex-parent--row-mxl">
         <div data-code='BWA' class="city col border-b border--gray-light border--red-on-hover border--red-on-active px6 py6 mx12-ml mx0-mm my6">
           Lumbini, September 17
         </div>
-      </div>
-      <div class="flex-parent flex-parent--column flex-parent--row-ml flex-parent--row-mxl">
         <div data-code='PKR' class="city col border-b border--gray-light border--red-on-hover border--red-on-active px6 py6  mx0-mm my6">
           Pokhara, September 18
         </div>
+      </div>
+      <div class="flex-parent flex-parent--column flex-parent--row-ml flex-parent--row-mxl">
         <div data-code='KTM' class="city col border-b border--gray-light border--red-on-hover border--red-on-active px6 py6 mx12-ml mx0-mm my6">
           Kathmandu, September 20
         </div>
-      </div>
-      <div class="flex-parent flex-parent--column flex-parent--row-ml flex-parent--row-mxl">
         <div data-code='VNS' class="city col border-b border--gray-light border--red-on-hover border--red-on-active px6 py6  mx0-mm my6">
           Varanasi, September 26
         </div>
+      </div>
+      <div class="flex-parent flex-parent--column flex-parent--row-ml flex-parent--row-mxl">
         <div data-code='JLR' class="city col border-b border--gray-light border--red-on-hover border--red-on-active px6 py6 mx12-ml mx0-mm my6">
           Jabalpur, September 28
         </div>
-      </div>
-      <div class="flex-parent flex-parent--column flex-parent--row-ml flex-parent--row-mxl">
         <div data-code='NAG' class="city col border-b border--gray-light border--red-on-hover border--red-on-active px6 py6 mx0-mm my6">
           Nagpur, September 29
         </div>
+      </div>
+      <div class="flex-parent flex-parent--column flex-parent--row-ml flex-parent--row-mxl">
         <div data-code='HYD' class="city col border-b border--gray-light border--red-on-hover border--red-on-active px6 py6 mx12-ml mx0-mm my6">
           Hyderabad, September 30
         </div>
-      </div>
-      <div class="flex-parent flex-parent--column flex-parent--row-ml flex-parent--row-mxl">
         <div data-code='BLR' class="city col border-b border--gray-light border--red-on-hover border--red-on-active px6 py6 mx0-mm my6 mr12-ml mr12-mxl">
           Bangalore, October 1
-        </div>
-        <div class="col px6 py6 mx0-mm my6 mr12-ml mr12-mxl">
         </div>
       </div>
     </div>

@@ -73,15 +73,29 @@ map.on('load', function() {
     "source": "currentCity",
     "type": "circle",
     "paint": {
-      "circle-radius": initialRadius,
+      "circle-radius": 10,
       "circle-radius-transition": {duration: 0},
       "circle-opacity-transition": {duration: 0},
-      "circle-color": "green"
+      "circle-color": "#42ADE2"
     }
   }
+
+  var currentCitySymbol = {
+    "id": "currentCitySymbol",
+    "source": "currentCity",
+    "type": "symbol",
+    "layout": {
+      "icon-image": 'car',
+      "icon-allow-overlap": true,
+      "icon-size": 0.3
+    }
+  }
+
     map.addLayer(cityLayer);
     map.addLayer(currentCityLayer);
+    map.addLayer(currentCitySymbol);
     map.setLayoutProperty('city', 'visibility', 'none');
+    map.setLayoutProperty('currentCitySymbol', 'visibility', 'none');
     map.setLayoutProperty('currentCity', 'visibility', 'none');
     animateMarker(0);
 
@@ -116,6 +130,9 @@ map.on('load', function() {
       if (currentLocation) {
         map.getSource('currentCity').setData(d.geometry);
         map.setLayoutProperty('currentCity', 'visibility', 'visible');
+        map.setLayoutProperty('currentCitySymbol', 'visibility', 'visible');
+        var status = moment(currentLocation.properties.time).fromNow();
+        $('.status').text('last updated '+ status);
       }
     })
     .fail(function(err) {console.log(err)});
