@@ -21,7 +21,7 @@ var currentLocation = {};
 mapboxgl.accessToken = 'pk.eyJ1IjoiZ2VvaGFja2VyIiwiYSI6ImFIN0hENW8ifQ.GGpH9gLyEg0PZf3NPQ7Vrg';
 var map = new mapboxgl.Map({
   container: 'map', // container id
-  style: 'mapbox://styles/geohacker/cj6hcmopz48qw2rpgjidmby7k', //stylesheet location
+  style: 'mapbox://styles/geohacker/cj6n2ss1t03co2qntdu1otj66', //stylesheet location
   center: [79.0820556, 21.1498134], // starting position
   zoom: 4,
   minZoom: 4,
