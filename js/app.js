@@ -21,7 +21,7 @@ var currentLocation = {};
 mapboxgl.accessToken = 'pk.eyJ1IjoiZ2VvaGFja2VyIiwiYSI6ImFIN0hENW8ifQ.GGpH9gLyEg0PZf3NPQ7Vrg';
 var map = new mapboxgl.Map({
   container: 'map', // container id
-  style: 'mapbox://styles/geohacker/cj6n2ss1t03co2qntdu1otj66', //stylesheet location
+  style: 'mapbox://styles/geohacker/cj6hcmopz48qw2rpgjidmby7k', //stylesheet location
   center: [79.0820556, 21.1498134], // starting position
   zoom: 4,
   minZoom: 4,
@@ -126,7 +126,7 @@ map.on('load', function() {
 
   function getCurrentLocation() {
     $('.spinner').addClass('loading loading--s');
-    $.get('https://api.mapbox.com/datasets/v1/geohacker/cj6lnkplm1nd033o55pczx8rw/features/latest?access_token='+mapboxgl.accessToken)
+    $.get('https://api.mapbox.com/datasets/v1/geohacker/cj6n2ss1t03co2qntdu1otj66/features/latest?access_token='+mapboxgl.accessToken)
       .done(function(d) {
         $('.spinner').removeClass('loading loading--s');
         currentLocation = d;
