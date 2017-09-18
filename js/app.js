@@ -30,7 +30,7 @@ var map = new mapboxgl.Map({
 
 // setup rss for instagram
 $('#rssfeed').rss("https://zapier.com/engine/rss/2437952/bangmandu", {
-  limit: 50,
+  limit: 2000,
   tokens: {
     image: function(entry, tokens) { return entry.content },
     url: function(entry, tokens) { return entry.link }
