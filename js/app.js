@@ -29,16 +29,16 @@ var map = new mapboxgl.Map({
 });
 
 // setup rss for instagram
-$('#rssfeed').rss("https://zapier.com/engine/rss/2437952/bangmandu", {
-  limit: 200,
-  tokens: {
-    image: function(entry, tokens) { return entry.content },
-    url: function(entry, tokens) { return entry.link }
-  },
-  layoutTemplate: "<div class='flex-parent flex-parent--column flex-parent--space-between-main-ml flex-parent--space-between-main-mxl flex-parent--wrap-mm flex-parent--row-ml flex-parent--row-mxl my24'>{entries}</div>",
-  entryTemplate: "<div class='photo wmax240-ml hmax240-ml wmax240-mxl hmax240-mxl hmin240-mm wmin240-mm'><a target='_blank' href='{url}'>{image}</a></div>",
-  error: function (err) {console.log(err)}
-});
+// $('#rssfeed').rss("https://gist.githubusercontent.com/geohacker/2b2802261ca2c91591f45a24850b7b59/raw/357a1665880e8108cc8fa9ec87126f643ff5f1ea/instarss2.xml", {
+//   limit: 200,
+//   tokens: {
+//     image: function(entry, tokens) { return entry.content },
+//     url: function(entry, tokens) { return entry.link }
+//   },
+//   layoutTemplate: "<div class='flex-parent flex-parent--column flex-parent--space-between-main-ml flex-parent--space-between-main-mxl flex-parent--wrap-mm flex-parent--row-ml flex-parent--row-mxl my24'>{entries}</div>",
+//   entryTemplate: "<div class='photo wmax240-ml hmax240-ml wmax240-mxl hmax240-mxl hmin240-mm wmin240-mm'><a target='_blank' href='{url}'>{image}</a></div>",
+//   error: function (err) {console.log(err)}
+// });
 
 // setup map events
 map.on('load', function() {
